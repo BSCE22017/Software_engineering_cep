@@ -1,0 +1,17 @@
+digraph View_Workout_Plan {
+	fontsize=18 label=View_Workout_Plan labelloc=t rankdir=LR
+	node [fillcolor=white fontname=Helvetica fontsize=12 shape=box style="rounded,filled"]
+	AwaitRequest
+	ValidatingSession
+	SessionInvalid
+	FetchingData
+	Displaying
+	start [shape=point]
+	end [label="" shape=doublecircle]
+	start -> AwaitRequest [label=""]
+	AwaitRequest -> ValidatingSession [label="requestWorkoutPlan()"]
+	ValidatingSession -> SessionInvalid [label=invalid]
+	ValidatingSession -> FetchingData [label=valid]
+	FetchingData -> Displaying [label=dataFetched]
+	Displaying -> end [label=""]
+}
